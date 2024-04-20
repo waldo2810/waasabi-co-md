@@ -1,4 +1,5 @@
 import { getTopFiveMeNow } from "@/services/api/rq/me-now/get-top-5";
+import { Link } from "react-router-dom";
 import SectionTitle from "./ui/section-title";
 import LoadingSpinner from "./ui/spinner";
 
@@ -20,13 +21,13 @@ const MeNow = () => {
             {data.map((post: any) => (
               <>
                 <p className="my-1" key={post.id}>
-                  <a href={`/me-now/${post.id}`}>{post.title}</a>
+                  <Link to={`/me-now/${post.id}`}>{post.title}</Link>
                 </p>
               </>
             ))}
-            <a href="/me-now">
+            <Link to="/me-now">
               <span className="italic font-bold">See full me ↗</span>
-            </a>
+            </Link>
           </div>
         )}
       </div>

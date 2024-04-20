@@ -1,13 +1,14 @@
 import PostContent from "@/components/ui/post-content";
 import PostTitle from "@/components/ui/post-title";
 import LoadingSpinner from "@/components/ui/spinner";
-import { Path, redirect, useParams } from "@/router";
+import { Path, useNavigate, useParams } from "@/router";
 import { getPostById } from "@/services/api/rq/posts/get-by-id";
 import { useEffect, useState } from "react";
 import { useRemark } from "react-remark";
 
 export default function Post() {
-  const params = useParams("/posts/:id/page");
+  const navigate = useNavigate();
+  const params = useParams("/posts/:id");
   const [date, setDate] = useState(new Date());
   const [reactContent, setMarkdownSource] = useRemark();
   const { data: post, isLoading } = getPostById(params.id);
@@ -22,7 +23,7 @@ export default function Post() {
   useEffect(() => {
     if (!isLoading) {
       if (!post) {
-        redirect("/404" as Path);
+        navigate("/404" as Path);
       }
     }
   }, [isLoading, post]);

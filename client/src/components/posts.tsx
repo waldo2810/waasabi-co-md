@@ -1,4 +1,5 @@
 import { getTopFivePosts } from "@/services/api/rq/posts/get-top-5";
+import { Link } from "react-router-dom";
 import SectionTitle from "./ui/section-title";
 import LoadingSpinner from "./ui/spinner";
 
@@ -20,13 +21,13 @@ const Posts = () => {
             {data.map((post: any) => (
               <>
                 <p className="my-1" key={post.id}>
-                  <a href={`/recent-thoughts/${post.id}`}>{post.title}</a>
+                  <Link to={`/recent-thoughts/${post.id}`}>{post.title}</Link>
                 </p>
               </>
             ))}
-            <a href="/recent-thoughts">
+            <Link to="/recent-thoughts">
               <span className="italic font-bold">See all thoughts ↗</span>
-            </a>
+            </Link>
           </div>
         )}
       </div>
