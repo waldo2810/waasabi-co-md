@@ -9,11 +9,11 @@ export type Path =
   | `/admin/posts`
   | `/admin/posts/new`
   | `/auth`
-  | `/recent-thoughts`
-  | `/recent-thoughts/:id/page`
+  | `/posts`
+  | `/posts/:id`
 
 export type Params = {
-  '/recent-thoughts/:id/page': { id: string }
+  '/posts/:id': { id: string }
 }
 
 export type ModalPath = never

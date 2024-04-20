@@ -2,7 +2,7 @@ import { getTopFivePosts } from "@/services/api/rq/posts/get-top-5";
 import SectionTitle from "./ui/section-title";
 import LoadingSpinner from "./ui/spinner";
 
-const RecentThoughts = () => {
+const Posts = () => {
   const { data, isLoading, isError } = getTopFivePosts();
   if (isLoading) {
     return <div>{isLoading ? <LoadingSpinner /> : null}</div>;
@@ -34,4 +34,4 @@ const RecentThoughts = () => {
   );
 };
 
-export default RecentThoughts;
+export default Posts;

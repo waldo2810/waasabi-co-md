@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
 import { useRemark } from "react-remark";
 
 export default function Post() {
-  const params = useParams("/recent-thoughts/:id/page");
-  const [reactContent, setMarkdownSource] = useRemark();
+  const params = useParams("/posts/:id/page");
   const [date, setDate] = useState(new Date());
+  const [reactContent, setMarkdownSource] = useRemark();
   const { data: post, isLoading } = getPostById(params.id);
 
   useEffect(() => {

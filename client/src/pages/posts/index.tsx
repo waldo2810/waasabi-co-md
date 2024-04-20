@@ -1,8 +1,9 @@
 import SectionTitle from "@/components/ui/section-title";
 import LoadingSpinner from "@/components/ui/spinner";
 import { getPosts } from "@/services/api/rq/posts/get-all";
+import { Link } from "react-router-dom";
 
-export default function RecentThoughts() {
+export default function Posts() {
   const { data, isLoading, isError } = getPosts();
   if (isLoading) {
     return <div>{isLoading ? <LoadingSpinner /> : null}</div>;
@@ -20,7 +21,7 @@ export default function RecentThoughts() {
             {data.map((post: any) => (
               <>
                 <p className="my-1" key={post.id}>
-                  <a href={`/recent-thoughts/${post.id}`}>{post.title}</a>
+                  <Link to={`/posts/${post.id}`}>{post.title}</Link>
                 </p>
               </>
             ))}

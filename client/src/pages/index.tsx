@@ -1,12 +1,12 @@
 import MeNow from "@/components/me-now";
-import RecentThoughts from "@/components/recent-thoughts";
+import Posts from "@/components/posts";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <motion.div initial={{ y: -50 }} animate={{ y: 0 }}>
       <section className="flex flex-col gap-5">
-        <RecentThoughts />
+        <Posts />
         <MeNow />
       </section>
     </motion.div>
