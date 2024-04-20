@@ -3,7 +3,7 @@ import { getTopFiveMeNowService } from "../../axios/me-now/get-top-5";
 
 export function getTopFiveMeNow() {
   return useQuery({
-    queryKey: ["me-now"],
+    queryKey: ["me-nows"],
     queryFn: getTopFiveMeNowService,
   });
 }

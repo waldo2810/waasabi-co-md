@@ -3,7 +3,7 @@ import { getTopFivePostsService } from "../../axios/posts/get-top-5";
 
 export function getTopFivePosts() {
   return useQuery({
-    queryKey: ["products"],
+    queryKey: ["posts"],
     queryFn: getTopFivePostsService,
   });
 }

@@ -1,12 +1,16 @@
 import PostContent from "@/components/ui/post-content";
 import PostTitle from "@/components/ui/post-title";
 import LoadingSpinner from "@/components/ui/spinner";
+import { Path, redirect, useParams } from "@/router";
+import { getPostById } from "@/services/api/rq/posts/get-by-id";
 import { useEffect, useState } from "react";
 import { useRemark } from "react-remark";
 
-export default function Post({ params }: { params: { id: number } }) {
-  const [date, setDate] = useState(new Date());
+export default function Post() {
+  const params = useParams("/recent-thoughts/:id/page");
   const [reactContent, setMarkdownSource] = useRemark();
+  const [date, setDate] = useState(new Date());
+  const { data: post, isLoading } = getPostById(params.id);
 
   useEffect(() => {
     if (post?.content) {
@@ -18,7 +22,7 @@ export default function Post({ params }: { params: { id: number } }) {
   useEffect(() => {
     if (!isLoading) {
       if (!post) {
-        redirect("/404");
+        redirect("/404" as Path);
       }
     }
   }, [isLoading, post]);
