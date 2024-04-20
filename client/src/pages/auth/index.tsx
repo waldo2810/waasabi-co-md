@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import SectionTitle from "@/components/ui/section-title";
 
-export default async function Auth() {
+export default function Auth() {
   return (
     <div className="flex flex-col items-center">
       <SectionTitle text="Backdoor" />
