@@ -10,10 +10,10 @@ export type Path =
   | `/admin/posts/new`
   | `/auth`
   | `/posts`
-  | `/posts/:id`
+  | `/posts/testing-mdx`
 
 export type Params = {
-  '/posts/:id': { id: string }
+  
 }
 
 export type ModalPath = never
