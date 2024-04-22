@@ -73,6 +73,12 @@
   body {
     @apply bg-background text-foreground;
   }
+  code {
+    @apply [p_&]:text-sm [p_&]:px-1 [p_&]:py-0.5 [p_&]:rounded-sm [p_&]:bg-gray-300 dark:[p_&]:bg-[#333] text-red-800;
+  }
+  li {
+    @apply my-2    [ul_&]:relative    [ul_&]:pl-4    [ul_&]:before:text-gray-400    [ul_&]:before:content-['–']    [ul_&]:before:mr-2    [ul_&]:before:absolute    [ul_&]:before:-ml-4;
+  }
 }
 
 * {
@@ -88,7 +94,6 @@ a:hover {
   text-decoration-color: rgba(235, 40, 40, 0.15);
   text-decoration-skip-ink: none;
   text-decoration-thickness: 0.3rem;
-  /* transition: text-decoration 0.3s; */
 }
 
 h2 {
@@ -98,55 +103,55 @@ h2 {
 
 h3 {
   font-size: 1.75rem;
+  margin: 1rem 0;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+h5 {
+  font-size: 1.25rem;
+  margin: 1rem 0;
+}
+
+h6 {
+  font-size: 1rem;
+  margin: 1rem 0;
 }
 
 p {
   margin: 1.5rem 0;
 }
 
+ol {
+  padding-left: 1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
 ul {
-  padding-left: 3rem;
-}
-
-li {
-  list-style-type: disc;
-}
-
-blockquote {
-  background: #f9f9f9;
-  border-left: 2px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-blockquote p {
-  font-style: italic;
-  display: inline;
-}
-
-code {
-  font-family: "Ubuntu Mono", monospace;
-  color: #a31414;
-  background-color: #f5f5f5;
-  padding: 0.2em;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  list-style-type: none;
 }
 
 pre {
-  font-size: 14px;
-  line-height: 1.6;
-  padding: 15px;
-  /* border-radius: 5px; */
-  background-color: #f5f5f5;
-  color: #222;
-  overflow-x: auto;
-  border: 1px solid #ccc;
-  white-space: pre-wrap;
+  padding: 1rem;
+  border-radius: 0.125rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #991b1b;
+  background-color: #d1d5db;
+}
+
+blockquote {
+  padding-left: 0.75rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-left-width: 4px;
+  color: #6b7280;
 }

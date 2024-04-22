@@ -10,6 +10,7 @@ export type Path =
   | `/admin/posts/new`
   | `/auth`
   | `/posts`
+  | `/posts/md-styling`
   | `/posts/testing-mdx`
 
 export type Params = {

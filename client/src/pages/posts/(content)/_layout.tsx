@@ -19,11 +19,11 @@ export default function PostsLayout() {
 
   return (
     <motion.div initial={{ y: -50 }} animate={{ y: 0 }}>
-      <div className="flex flex-col items-center justify-center">
+      <article className="flex flex-col items-center justify-center">
         <PostTitle>{post?.title}</PostTitle>
         <p>Posted on {new Date(post?.date as string).toDateString()}</p>
         <Outlet />
-      </div>
+      </article>
     </motion.div>
   );
 }
