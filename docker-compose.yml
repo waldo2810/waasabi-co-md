@@ -1,16 +1,32 @@
-version: "3.8"
-services:
-  postgres:
-    image: postgres
-    container_name: db
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: waasabi
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
+version: "3"
 
-volumes:
-  postgres_data:
+services:
+  client:
+    container_name: client
+    build:
+      context: .
+      dockerfile: ./apps/client/Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - app_network
+  server:
+    container_name: server
+    build:
+      context: .
+      dockerfile: ./apps/server/Dockerfile
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 3001:3001
+    volumes:
+      - ./apps/server/data:/data
+    networks:
+      - app_network
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  app_network:
