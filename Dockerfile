@@ -1,24 +1,35 @@
-# BASE IMAGE
-FROM node:18-alpine AS base
+# Stage 1: Build stage
+FROM node:18-alpine AS builder
 
-# BUILD STAGE
-FROM base AS builder
+# Install necessary tools
+RUN npm install -g corepack pnpm
+
+# Set working directory
 WORKDIR /app
-RUN npm install -g turbo
+
+# Copy package.json and pnpm-lock.yaml separately
+COPY package.json pnpm-lock.yaml ./
+
+# Install dependencies using pnpm
+RUN corepack enable pnpm && pnpm i --frozen-lockfile
+
+# Copy the rest of the application
 COPY . .
-RUN turbo prune client --docker
-RUN npm install
 
-# build app
-RUN turbo run build --filter=client...
+# Run the build command
+RUN corepack enable pnpm && pnpm run build
 
-# PRODUCTION STAGE
-FROM base as production
+# Stage 2: Runtime stage
+FROM node:18-alpine
+
+# Set working directory
 WORKDIR /app
-COPY --from=builder /app/out/full/apps/client/dist .
-COPY --from=builder /app/out/full/apps/client/vite.config.ts .
-COPY --from=builder /app/out/json/apps/client/package.json .
-RUN npm install typescript
 
+# Copy built files from the previous stage
+COPY --from=builder /app .
+
+# Expose port 3000
 EXPOSE 3000
-CMD ["npm", "run", "preview"]
+
+# Define the command to run the application
+CMD ["pnpm", "run", "preview"]
