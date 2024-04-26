@@ -8,7 +8,7 @@ import NotFound from "./pages/404";
 
 export default function App() {
     return (
-        <section className="flex flex-col justify-between max-w-2xl mx-auto min-h-screen">
+        <section className="flex flex-col justify-between w-[85%] md:max-w-2xl mx-auto min-h-screen">
             <Nav />
             <div className="my-5 md:my-20">
                 <Routes>
