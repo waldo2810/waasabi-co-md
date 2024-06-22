@@ -27,7 +27,7 @@ const Posts = ({ topFive }: { topFive?: boolean }) => {
                 <td>{post.date}</td>
               </tr>
             ))}
-            {topFive ? (
+            {topFive && posts.length > 5 ? (
               <Link to="/posts">
                 <span className="italic font-bold">See all thoughts ↗</span>
               </Link>
