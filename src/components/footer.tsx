@@ -17,7 +17,7 @@ const Footer = () => {
       </span>
       <span>
         Check are.na{" "}
-        <a href="https://www.are.na/wasab-i" target="_blank">
+        <a href="https://www.are.na/wasabi-co" target="_blank">
           here
         </a>
         .
