@@ -16,18 +16,23 @@ const Posts = ({ topFive }: { topFive?: boolean }) => {
         {!posts.length ? (
           <p>Haven&apos;t posted yet</p>
         ) : (
-          <div>
+          <table className="w-full">
             {posts.map((post) => (
-              <p className="my-1" key={post.id}>
-                <Link to={`/posts/${post.id}`}>{post.title}</Link>
-              </p>
+              <tr>
+                <td>
+                  <p className="my-1" key={post.id}>
+                    <Link to={`/posts/${post.id}`}>{post.title}</Link>
+                  </p>
+                </td>
+                <td>{post.date}</td>
+              </tr>
             ))}
             {topFive ? (
               <Link to="/posts">
                 <span className="italic font-bold">See all thoughts ↗</span>
               </Link>
             ) : null}
-          </div>
+          </table>
         )}
       </div>
     </div>
