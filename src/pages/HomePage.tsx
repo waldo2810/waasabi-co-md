@@ -1,5 +1,6 @@
 import MeNow from "@/components/me-now";
 import Posts from "@/components/posts";
+import RelevantLinks from "@/components/relevant-links";
 import { motion } from "framer-motion";
 
 export default function HomePage() {
@@ -9,6 +10,7 @@ export default function HomePage() {
                 <p>Systems Engineer. I build things (kind of). I solve problems. More importantly, human.</p>
                 <Posts topFive />
                 <MeNow />
+                <RelevantLinks />
             </section>
         </motion.div>
     );
