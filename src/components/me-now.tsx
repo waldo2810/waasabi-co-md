@@ -16,7 +16,7 @@ const MeNow = () => {
             <div className="flex items-center gap-10 my-2">
                 <img className="w-[8rem] shadow-xl" src="https://m.media-amazon.com/images/I/81+oMD7Lm7L._AC_UF1000,1000_QL80_.jpg" />
                 <div>
-                    <h6 className="m-0 font-semibold">Joe Reis & Matt Housley' Fundamentals of Data Engineering</h6>
+                    <h6 className="m-0 font-semibold">Joe Reis & Matt Housley's Fundamentals of Data Engineering</h6>
                     <p className="m-0">Yeah this is a spoiler of my career shift in a few years. I just hope it keeps being such a nice engineering field.</p>
                 </div>
             </div>

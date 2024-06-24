@@ -10,7 +10,7 @@ const RelevantLinks = () => {
                     target="_blank"
                     href="https://www.youtube.com/watch?v=jGwO_UgTS7I&list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU"
                 >
-                    Stanford CS229 ↗
+                    Stanford CS229 (Autumn 2018) ↗
                 </a>
 
                 <a
